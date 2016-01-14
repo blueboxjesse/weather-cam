@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-. ~/.openstack-creds
+source ~/.openstack-creds
 
 BUCKET=`date +%Y-%j`
 DATE_STAMP=`date +%Y-%m-%d-%H-%M-%S`

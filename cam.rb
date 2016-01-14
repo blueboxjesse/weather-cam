@@ -44,4 +44,4 @@ else
 
 end
 
-`sh /home/pi/queen-anne-cam/upload.sh #{ARGV[0]} > /home/pi/queen-anne-cam/upload.log`
+`bash /home/pi/queen-anne-cam/upload.sh #{ARGV[0]} > /home/pi/queen-anne-cam/upload.log`
