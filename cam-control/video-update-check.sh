@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.openstack-creds
+
 OBJECT_DATE=`swift stat weather-cam weather.jpg | grep "X-Timestamp: " | cut -d ":" -f2 | bc`
 OBJECT_DATE=${OBJECT_DATE/.*}
 

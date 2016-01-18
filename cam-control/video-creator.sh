@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.openstack-creds
+
 PROGRAM=`basename "$0"`
 
 if [ "$#" -ne 3 ]; then
