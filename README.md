@@ -11,6 +11,18 @@ export OS_IDENTITY_API_VERSION=3
 export OS_AUTH_VERSION=3
 ```
 
+## Required Software
+### cam-control
+```
+sudo apt-get install gcc gcc+ yasm make
+wget https://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.2.tar.xz
+tar -xJf MPlayer-1.2.tar.xz
+cd MPlayer-1.2/
+./configure
+make
+make install
+```
+
 ## Crontabs
 
 ### Raspberry Pi
