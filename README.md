@@ -13,15 +13,8 @@ export OS_AUTH_VERSION=3
 
 ## Required Software
 ### cam-control
-```
-sudo apt-get install gcc gcc+ yasm make zlib1g zlib1g-dev
-wget https://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.2.tar.xz
-tar -xJf MPlayer-1.2.tar.xz
-cd MPlayer-1.2/
-./configure
-make
-make install
-```
+
+Use Ubuntu 14.04. Ubuntu 15.04 does not include mencoder in its package respository and building from scratch is a great way to ruin your day.
 
 ## Crontabs
 
