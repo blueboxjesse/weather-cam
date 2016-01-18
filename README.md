@@ -11,11 +11,20 @@ export OS_IDENTITY_API_VERSION=3
 export OS_AUTH_VERSION=3
 ```
 
-## Raspberry Pi Crontabs
+## Crontabs
+
+### Raspberry Pi
 ```
 # m h  dom mon dow   command
 */1 * * * * /usr/local/bin/lockrun --lockfile=/home/pi/queen-anne-cam/cam1.lock -- ruby /home/pi/queen-anne-cam/cam.rb 0
 */1 * * * * /usr/local/bin/lockrun --lockfile=/home/pi/queen-anne-cam/cam2.lock -- ruby /home/pi/queen-anne-cam/cam.rb 30
 */1 * * * * /home/pi/queen-anne-cam/ssh_tunnel.sh > tunnel.log 2>&1
 */1 * * * * /home/pi/queen-anne-cam/temperature.sh
+```
+
+### cam-control
+```
+# m h  dom mon dow   command
+0 1 * * * /home/ibmcloud/queen-anne-cam/video-cron.sh
+*/5 * * * * /home/ibmcloud/queen-anne-cam/video-update-check.sh
 ```
