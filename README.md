@@ -14,7 +14,7 @@ export OS_AUTH_VERSION=3
 ## Required Software
 ### cam-control
 ```
-sudo apt-get install gcc gcc+ yasm make
+sudo apt-get install gcc gcc+ yasm make zlib1g zlib1g-dev
 wget https://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.2.tar.xz
 tar -xJf MPlayer-1.2.tar.xz
 cd MPlayer-1.2/
