@@ -15,10 +15,15 @@ export TWILIO_PASS=
 export TWILIO_NUMB=""
 ```
 
-## Required Software
+## Required Software and Setup
 ### cam-control
 
 Use Ubuntu 14.04. Ubuntu 15.04 does not include mencoder in its package respository and building from scratch is a great way to ruin your day.
+
+Set the timezone:
+```
+sudo dpkg-reconfigure tzdata
+```
 
 Install the following software:
 ```
