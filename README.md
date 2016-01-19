@@ -29,6 +29,19 @@ cd ~/
 git clone git@github.com:blueboxjesse/weather-cam.git
 ```
 
+Install youtube upload(https://github.com/tokland/youtube-upload):
+```
+sudo apt-get install unzip
+mkdir -p ~/source
+cd ~/source
+wget https://github.com/tokland/youtube-upload/archive/master.zip
+unzip master.zip
+cd youtube-upload-master
+sudo python setup.py install
+sudo pip install --upgrade google-api-python-client progressbar2
+```
+
+
 ## Crontabs
 
 ### Raspberry Pi
