@@ -29,7 +29,7 @@ cd ~/
 git clone git@github.com:blueboxjesse/weather-cam.git
 ```
 
-Install youtube upload(https://github.com/tokland/youtube-upload):
+Install youtube upload (https://github.com/tokland/youtube-upload):
 ```
 sudo apt-get install unzip
 mkdir -p ~/source
@@ -39,6 +39,11 @@ unzip master.zip
 cd youtube-upload-master
 sudo python setup.py install
 sudo pip install --upgrade google-api-python-client progressbar2
+```
+
+Create the pi tunnel user and add the camera's SSH key:
+```
+sudo adduser pi
 ```
 
 
