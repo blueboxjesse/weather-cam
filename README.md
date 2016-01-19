@@ -9,12 +9,25 @@ export OS_AUTH_URL=https://identity.open.softlayer.com/v3
 export OS_REGION_NAME=dallas
 export OS_IDENTITY_API_VERSION=3
 export OS_AUTH_VERSION=3
+
+export TWILIO_USER=
+export TWILIO_PASS=
+export TWILIO_NUMB=""
 ```
 
 ## Required Software
 ### cam-control
 
 Use Ubuntu 14.04. Ubuntu 15.04 does not include mencoder in its package respository and building from scratch is a great way to ruin your day.
+
+Install the following software:
+```
+sudo apt-get install git python-pip python-dev libffi-dev python-pyasn1 libssl-dev
+sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
+sudo pip install --upgrade ndg-httpsclient
+cd ~/
+git clone git@github.com:blueboxjesse/weather-cam.git
+```
 
 ## Crontabs
 
@@ -30,6 +43,6 @@ Use Ubuntu 14.04. Ubuntu 15.04 does not include mencoder in its package resposit
 ### cam-control
 ```
 # m h  dom mon dow   command
-0 1 * * * /home/ibmcloud/queen-anne-cam/video-cron.sh
-*/5 * * * * /home/ibmcloud/queen-anne-cam/video-update-check.sh
+0 1 * * * bash ~/weather-cam/cam-control/video-cron.sh
+*/5 * * * * bash ~/weather-cam/cam-control/video-update-check.sh
 ```
