@@ -41,6 +41,11 @@ sudo python setup.py install
 sudo pip install --upgrade google-api-python-client progressbar2
 ```
 
+Then follow the authentication steps laid out here:
+https://github.com/tokland/youtube-upload#authentication
+
+Install the output into: ~/youtube_client_secret.json
+
 Create the pi tunnel user and add the camera's SSH key:
 ```
 sudo adduser pi
