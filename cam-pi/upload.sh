@@ -17,7 +17,7 @@ if [[ $# -eq 0 ]] ; then
     echo "Uploading $FILE_PATH to $FILE in $BUCKET"
 
     until timeout 20s /usr/local/bin/swift upload weather-cam-$BUCKET $FILE_PATH --object-name $FILE --skip-identical; do
-      echo "Upload of $FILE failed... Trying again..."
+      echo "Upload of $FILE failed... Exit code: $?. Trying again..."
     done
 
     rm $FILE_PATH
