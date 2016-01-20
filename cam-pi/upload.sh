@@ -33,7 +33,6 @@ else
   mv $MEMORY_STORAGE/weather-$1.jpg $FILE
 
   echo "Uploading weather-$1.jpg"
-  timeout 15s /usr/local/bin/swift upload weather-cam $FILE --object-name weather.jpg
-  echo "Upload success: $?"
+  timeout 25s /usr/local/bin/swift upload weather-cam $FILE --object-name weather.jpg &
   
 fi
