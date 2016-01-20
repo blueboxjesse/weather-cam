@@ -5,15 +5,35 @@ source ~/.openstack-creds
 BUCKET=`date +%Y-%j`
 DATE_STAMP=`date +%Y-%m-%d-%H-%M-%S`
 
-cd /var/tmp/
+MEMORY_STORAGE=/var/tmp
+RESIDENT_STORAGE=/tmp/weather-cam
 
-echo "Uploading weather-$1.jpg"
-mv weather-$1.jpg $DATE_STAMP.jpg
+if [[ $# -eq 0 ]] ; then
 
-timeout 20s /usr/local/bin/swift upload weather-cam /var/tmp/$DATE_STAMP.jpg --object-name weather.jpg
+  echo "Upload Mode: Batch"
+ 
+  for FILE_PATH in $RESIDENT_STORAGE/$BUCKET/* ; do
+    FILE=`basename "$FILE_PATH"`
+    echo "Uploading $FILE_PATH to $FILE in $BUCKET"
 
-echo "Uploading Timestamped Pic $DATE_STAMP.jpg to $BUCKET"
+    until timeout 20s /usr/local/bin/swift upload weather-cam-$BUCKET $FILE_PATH --object-name $FILE --skip-identical; do
+      echo "Upload of $FILE failed... Trying again..."
+    done
 
-timeout 20s /usr/local/bin/swift upload weather-cam-$BUCKET /var/tmp/$DATE_STAMP.jpg --object-name $DATE_STAMP.jpg
+    rm $FILE_PATH
 
-rm /var/tmp/$DATE_STAMP.jpg
+  done
+
+else
+
+  echo "Upload Mode: weather.jpg"
+  FILE=$RESIDENT_STORAGE/$BUCKET/$DATE_STAMP.jpg
+
+  mkdir -p $RESIDENT_STORAGE/$BUCKET
+  mv $MEMORY_STORAGE/weather-$1.jpg $FILE
+
+  echo "Uploading weather-$1.jpg"
+  timeout 15s /usr/local/bin/swift upload weather-cam $FILE --object-name weather.jpg
+  echo "Upload success: $?"
+  
+fi

@@ -44,4 +44,5 @@ else
 
 end
 
-`bash #{Dir.pwd}/upload.sh #{ARGV[0]} > /home/pi/queen-anne-cam/upload.log`
+cam_path = File.expand_path(File.dirname(File.dirname(__FILE__)))
+`bash #{cam_path}/cam-pi/upload.sh #{ARGV[0]} > /home/pi/queen-anne-cam/upload.log`
