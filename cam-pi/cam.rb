@@ -1,5 +1,8 @@
 require 'httparty'
-response = JSON.parse(HTTParty.get("http://api.sunrise-sunset.org/json?lat=47.630596&lng=-122.352257&date=today&formatted=0").body)
+
+today = Time.now.strftime("%Y-%m-%d")
+
+response = JSON.parse(HTTParty.get("http://api.sunrise-sunset.org/json?lat=47.630596&lng=-122.352257&date=#{today}&formatted=0").body)
 
 sunset = Time.parse(response["results"]["sunset"])
 sunrise = Time.parse(response["results"]["sunrise"])
