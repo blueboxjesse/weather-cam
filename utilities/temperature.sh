@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# temperature.sh
+# 
+# Records the raspberry pi temperature 
+
 rec_temp () {
   TEMP=`/opt/vc/bin/vcgencmd measure_temp`
   DATE=`date`

@@ -1,6 +1,22 @@
 # weather-cam
 
-## ~/.openstack-creds 
+This is the source code that powers https://queen-anne.seattle.watch. A full blog post on that 
+installation is forthcoming.
+
+## Pre-requisites
+
+* Lockrun: https://github.com/pushcx/lockrun
+
+## Installation
+
+This code expects to be checked out in a user's home directory.
+
+## Configuration
+
+This code sources a configuration file from ~/.weather-cam. This configuration value requires the following 
+environmental variables:
+
+### ~/.weather-cam
 ```
 export OS_USER_ID=""
 export OS_PASSWORD=""
