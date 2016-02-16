@@ -2,15 +2,17 @@
 
 source ~/.openstack-creds
 
-BUCKET=`date +%Y-%j`
+: ${BUCKET=`date +%Y-%j`}
 DATE_STAMP=`date +%Y-%m-%d-%H-%M-%S`
 
 MEMORY_STORAGE=/var/tmp
-RESIDENT_STORAGE=/tmp/weather-cam
+RESIDENT_STORAGE=$HOME/weather-cam-tmp
+mkdir -p $RESIDENT_STORAGE/$BUCKET
 
 if [[ $# -eq 0 ]] ; then
 
   echo "Upload Mode: Batch"
+  sleep 60
  
   for FILE_PATH in $RESIDENT_STORAGE/$BUCKET/* ; do
     FILE=`basename "$FILE_PATH"`
@@ -29,7 +31,6 @@ else
   echo "Upload Mode: weather.jpg"
   FILE=$RESIDENT_STORAGE/$BUCKET/$DATE_STAMP.jpg
 
-  mkdir -p $RESIDENT_STORAGE/$BUCKET
   mv $MEMORY_STORAGE/weather-$1.jpg $FILE
 
   echo "Uploading weather-$1.jpg"

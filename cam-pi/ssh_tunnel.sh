@@ -1,7 +1,9 @@
 #!/bin/bash
 
+source $HOME/.weather-cam
+
 createTunnel() {
-  /usr/bin/ssh -N -R 2222:localhost:22 pi@159.122.249.81
+  /usr/bin/ssh -N -R $JUMPBOX_PORT:localhost:22 $JUMPBOX_USER@$JUMPBOX_IP
   if [[ $? -eq 0 ]]; then
     echo Tunnel to jumpbox created successfully
   else
