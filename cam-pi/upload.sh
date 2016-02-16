@@ -6,7 +6,7 @@ source ~/.openstack-creds
 DATE_STAMP=`date +%Y-%m-%d-%H-%M-%S`
 
 MEMORY_STORAGE=/var/tmp
-RESIDENT_STORAGE=$HOME/weather-cam-tmp
+RESIDENT_STORAGE=/home/pi/weather-cam-tmp
 mkdir -p $RESIDENT_STORAGE/$BUCKET
 
 if [[ $# -eq 0 ]] ; then

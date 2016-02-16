@@ -48,7 +48,7 @@ elsif ( Time.now > sunset && Time.now < (sunset + twilight_offset * 60) ) || ( T
 
   puts "Snapping pictures..."
   `raspistill -t 500 -awb horizon -w 2592 -h 1555 -ev 0 -ex auto -q 100 -o /var/tmp/pic1-#{ARGV[0]}.jpg`
-  `raspistill -t 500 -awb horizon -w 2592 -h 1555 -ss 2000000 -ISO 200 -o /var/tmp/pic2-#{ARGV[0]}.jpg`
+  `raspistill -t 500 -awb horizon -w 2592 -h 1555 -ss 1000000 -ISO 200 -o /var/tmp/pic2-#{ARGV[0]}.jpg`
 
   puts "Running enfuse..."
   `TMPDIR=/var/tmp/ enfuse -o /var/tmp/#{image} /var/tmp/pic1-#{ARGV[0]}.jpg /var/tmp/pic2-#{ARGV[0]}.jpg > /dev/null`
