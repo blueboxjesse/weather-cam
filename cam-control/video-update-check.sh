@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.openstack-creds
+source $HOME/.weather-cam
 
 OBJECT_DATE=`swift stat weather-cam weather.jpg | grep "X-Timestamp: " | cut -d ":" -f2 | bc`
 OBJECT_DATE=${OBJECT_DATE/.*}
@@ -10,7 +10,7 @@ CURRENT_DATE=`date "+%s"`
 CHECK_DATE=`expr $CURRENT_DATE - 300`
 DIFFERENCE_DATE=`expr $CURRENT_DATE - $OBJECT_DATE`
 
-nc -z 127.0.0.1 2222
+nc -z 127.0.0.1 $CAM_PORT
 TUNNEL_STATUS=`echo $?`
 if [ "$TUNNEL_STATUS" -eq "0" ]; then
   TUNNEL_STATUS='Online'
@@ -22,9 +22,9 @@ if [ "$OBJECT_DATE" -lt "$CHECK_DATE" ]; then
 
 # Notify
 curl -X POST "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_USER/Messages.json" \
---data-urlencode 'To=+12067788777'  \
---data-urlencode 'From=+12065390328'  \
---data-urlencode "Body=QA Cam pic delayed $DIFFERENCE_DATE. Last upload: $OBJECT_DATE, current date: $CURRENT_DATE. Tunnel Status: $TUNNEL_STATUS" \
+--data-urlencode "To=$TWILIO_TO"  \
+--data-urlencode "From=$TWILIO_FROM"  \
+--data-urlencode "Body=$CAM_NAME delayed $DIFFERENCE_DATE s. Tunnel Status: $TUNNEL_STATUS" \
 -u $TWILIO_USER:$TWILIO_PASS
 
 else
