@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.openstack-creds
+source $HOME/.weather-cam
 
 PROGRAM=`basename "$0"`
 
@@ -19,13 +19,11 @@ YEAR=$3
 mkdir -p ~/videos/$YEAR-$DAY
 cd ~/videos/$YEAR-$DAY
 
-swift download weather-cam-$YEAR-$DAY
+swift download weather-cam-$YEAR-$DAY --skip-identical
 
-ls *.jpg > stills.txt
+mencoder -nosound -ovc copy -o $YEAR-$DAY.avi -mf w=2592:h=1555:fps=40:type=jpg mf://*.jpg
+avconv -i $YEAR-$DAY.avi -c:v h264 -c:a copy -s 2592x1556 $YEAR-$DAY-h264.avi
 
-# mencoder -nosound -ovc lavc -lavcopts vcodec=mpeg4:aspect=16/9:vbitrate=8000000 -vf scale=2592:1555 -o  $YEAR-$DAY.avi -mf type=jpeg:fps=24 mf://@stills.txt
-mencoder -nosound -ovc copy -o $YEAR-$DAY.avi -mf w=2592:h=1555:fps=24:type=jpg mf://@stills.txt
-
-/usr/local/bin/youtube-upload --title "Seattle Weather Time-lapse $YEAR Day $DAY" --privacy=public --playlist="Seattle Skyline Time-lapse Recordings" --client-secrets=$HOMEDIR/youtube_client_secret.json ~/videos/$YEAR-$DAY/$YEAR-$DAY.avi
+/usr/local/bin/youtube-upload --tags=$WEATHER_CAM_VID_TAGS -d $WEATHER_CAM_VID_DESCRIPTION --title "WEATHER_CAM_VID_TITLE $YEAR Day $DAY" --privacy=public --playlist=$WEATHER_CAM_VID_PLAYLIST --client-secrets=$HOME/youtube_client_secret.json ~/videos/$YEAR-$DAY/$YEAR-$DAY-h264.avi
 
 rm -rf ~/videos/$YEAR-$DAY
