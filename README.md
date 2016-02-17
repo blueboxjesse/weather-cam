@@ -12,7 +12,7 @@ This set of code was developed as a way for [@blueboxjesse](https://twitter.com/
 
 **You will need:**
 * Raspberry Pi w/ Camera Module running the cam-pi code
-* [IBM Bluemix](https://www.bluemix.net Virtual Machine running the cam-control code
+* [IBM Bluemix](https://www.bluemix.net) Virtual Machine running the cam-control code
 * [IBM Bluemix](https://www.bluemix.net) Cloud Foundry implementation running the embedded Sinatra app 
 
 ## Installation
@@ -25,7 +25,8 @@ Follow these steps for installation:
 
 
 **On Cam-Control:**
-Install YouTube Upload (https://github.com/tokland/youtube-upload) on Cam-Control, then follow the authentication steps laid out [here](https://github.com/tokland/youtube-upload#authentication) and install the output into: ~/youtube_client_secret.json
+
+Install [YouTube Upload](https://github.com/tokland/youtube-upload) on Cam-Control, then follow the authentication steps laid out [here](https://github.com/tokland/youtube-upload#authentication) and install the output into: ~/youtube_client_secret.json
 
 ```
 sudo apt-get install unzip
