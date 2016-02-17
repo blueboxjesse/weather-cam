@@ -13,7 +13,7 @@ function goCam() {
 };
 
 function loadCam(cache_bust) {
-  image = 'https://dal.objectstorage.open.softlayer.com/v1/AUTH_09efdd634bf5483ebdf24ff6a166db27/weather-cam/weather.jpg?cachebust=' + cache_bust
+  image = '<%= ENV['WEATHER_JPG_URL'] %>?cachebust=' + cache_bust
   $('img.cam-pre-loader').attr('src', image).load(function() {
     $('html').css('background-image', 'url(' + image + ')');
   });  
@@ -26,7 +26,7 @@ function setCam() {
 }
 
 function goWeather() {
-  station = 'KWASEATT457'
+  station = '<%= ENV['WEATHER_UNDERGROUND_ID'] %>'
   weather_data = jQuery.getJSON('http://stationdata.wunderground.com/cgi-bin/stationlookup?station=' + station + '&units=english&v=2.0&format=json', function(data) {
     wind = data["stations"][station]["wind_speed"]
     gust = data["stations"][station]["wind_gust_speed"]

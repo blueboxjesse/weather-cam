@@ -3,12 +3,13 @@
   "Params": {
     "Target": {
       "Url": "https://api.ng.bluemix.net",
-      "Org": "Bluebox Apps Engineering",
+      "Org": "Proudman Experimental",
       "Space": "Proudman Experimental"
     },
-    "Name": "queen-anne-cam-stage",
+    "Name": "weather-cam-staging",
     "Instrumentation": {
-      "host": "queen-anne-cam-stage"
+      "host": "weather-cam-staging",
+      "domain": "mybluemix.net"
     }
   },
   "Path": "manifest.yml",
