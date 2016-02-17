@@ -24,5 +24,3 @@ class WeatherCam < Sinatra::Base
     haml :solar
   end
 end
-
-WeatherCam.run!

@@ -4,10 +4,10 @@
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %meta(name="description" content="Seattle Weather Cam perched on the top of Queen Anne.")
     %meta(name="keywords" content="Queen Anne Weather, Seattle Weather, Queen Anne Weather Cam, Seattle Weather Cam")
-    %link(rel="stylesheet" href="/stylesheets/style.css")
+    %link(rel="stylesheet" href="#{stylesheet_path 'app'}")
     %script(src="https://code.jquery.com/jquery-1.11.3.min.js")
     %script(src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js")
-    %script(src="/javascripts/application.js")
+    %script(src="#{javascript_path 'app'}")
  
   %body(onload="setCam();")
     %div(class="text")
