@@ -1,0 +1,16 @@
+{
+  "ServiceId": "com.ibm.cloudoe.orion.client.deploy",
+  "Params": {
+    "Target": {
+      "Url": "https://api.ng.bluemix.net",
+      "Org": "Bluebox Apps Engineering",
+      "Space": "Proudman Experimental"
+    },
+    "Name": "queen-anne-cam-stage",
+    "Instrumentation": {
+      "host": "queen-anne-cam-stage"
+    }
+  },
+  "Path": "manifest.yml",
+  "Type": "Cloud Foundry"
+}
