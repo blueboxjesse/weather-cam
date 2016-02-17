@@ -10,7 +10,7 @@ This README covers pre-reqs, installation instructions and general pointers. ple
 ## Pre-requisites
 This set of code was developed as a way for [@blueboxjesse](https://twitter.com/blueboxjesse) to test out IBM's Public Cloud service catalogue. It uses a combination of 
 
-'''You will need:'''
+**You will need:**
 * Raspberry Pi w/ Camera Module running the cam-pi code
 * [IBM Bluemix](https://www.bluemix.net Virtual Machine running the cam-control code
 * [IBM Bluemix](https://www.bluemix.net) Cloud Foundry implementation running the embedded Sinatra app 
@@ -19,12 +19,12 @@ This set of code was developed as a way for [@blueboxjesse](https://twitter.com/
 
 Follow these steps for installation:
 
-# Check out this repository in the home directory for the Cam-Pi and the Cam-Control servers.
-# Download and install [Lockrun](https://github.com/pushcx/lockrun) on both Cam-Pi and Cam Control.
-# For the sake of the crontabs, set the timezone on Cam-Pi and Cam-Control to your local time zone (sudo dpkg-reconfigure tzdata)
+* Check out this repository in the home directory for the Cam-Pi and the Cam-Control servers.
+* Download and install [Lockrun](https://github.com/pushcx/lockrun) on both Cam-Pi and Cam Control.
+* For the sake of the crontabs, set the timezone on Cam-Pi and Cam-Control to your local time zone (sudo dpkg-reconfigure tzdata)
 
 
-'''On Cam-Control:'''
+**On Cam-Control:**
 Install YouTube Upload (https://github.com/tokland/youtube-upload) on Cam-Control, then follow the authentication steps laid out [here](https://github.com/tokland/youtube-upload#authentication) and install the output into: ~/youtube_client_secret.json
 
 ```
