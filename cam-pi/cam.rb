@@ -19,9 +19,9 @@ daytime_contrast = "0,8"
 
 # Fetch sunrise / sunset data
 require 'httparty'
-sunset_data = JSON.parse(HTTParty.get("http://api.sunrise-sunset.org/json?lat=#{ENV['CAM_LAT']}&lng=#{ENV['CAM_LONG']}&date=#{Time.now.strftime("%Y-%m-%d")}&formatted=0").body)
-sunset = Time.parse(response["results"]["sunset"])
-sunrise = Time.parse(response["results"]["sunrise"])
+sunset_data = JSON.parse(HTTParty.get("http://api.sunrise-sunset.org/json?lat=#{ENV['CAM_LAT']}&lng=#{ENV['CAM_LONG']}&date=#{Time.now.strftime('%Y-%m-%d')}&formatted=0").body)
+sunset = Time.parse(sunset_data["results"]["sunset"])
+sunrise = Time.parse(sunset_data["results"]["sunrise"])
 
 if ARGV[0].to_i > 0
   puts "Sleeping for #{ARGV[0]}"
