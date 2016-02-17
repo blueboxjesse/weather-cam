@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 64MB
+  instances: 2
+  domain: mybluemix.net
+  name: queen-anne-cam
+  host: queen-anne-cam
+  disk_quota: 1024M
