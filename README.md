@@ -14,6 +14,7 @@ This set of code was developed as a way for [@blueboxjesse](https://twitter.com/
 * Raspberry Pi w/ Camera Module running the cam-pi code
 * [IBM Bluemix](https://www.bluemix.net) Virtual Machine running the cam-control code
 * [IBM Bluemix](https://www.bluemix.net) Cloud Foundry implementation running the embedded Sinatra app 
+* [IBM Bluemix](https://www.bluemix.net) Object Storage account
 
 ## Installation
 
