@@ -23,6 +23,21 @@ Follow these steps for installation:
 * Download and install [Lockrun](https://github.com/pushcx/lockrun) on both Cam-Pi and Cam Control.
 * For the sake of the crontabs, set the timezone on Cam-Pi and Cam-Control to your local time zone (sudo dpkg-reconfigure tzdata)
 
+**In Bluemix:**
+You need to set the following environmental variables in your Bluemix Cloud Foundry app:
+
+```
+WEATHER_JPG_URL: https://dal.objectstorage.open.softlayer.com/v1/AUTH_09efdd634bf5483ebdf24ff6a166db27/weather-cam/weather.jpg
+WEATHER_UNDERGROUND_ID: KWASEATT457
+
+# If querying a Tigo Solar array
+MEMCACHE_PASS: 
+MEMCACHE_SERVER: 
+MEMCACHE_USER: 
+TIGO_URL: 
+```
+
+Once those are set, a simple cf push will publish the app.
 
 **On Cam-Control:**
 
