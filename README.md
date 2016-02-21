@@ -1,7 +1,6 @@
 # weather-cam
 
-This is the source code that powers http://queen-anne.seattle.watch. A full blog post on that 
-installation is forthcoming.
+This is the source code that powers http://queen-anne.seattle.watch. You can read all about this project [here](https://medium.com/@blueboxjesse/seattle-watch-an-exploration-in-ibm-bluemix-a-raspberry-pi-and-some-time-lapse-magic-64a41a16a9e1#.qk3rgo8v9).
 
 This project is licensed under the MIT license. Please feel free to contribute!
 
