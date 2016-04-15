@@ -15,7 +15,7 @@ function goCam() {
 function loadCam(cache_bust) {
   image = '<%= ENV['WEATHER_JPG_URL'] %>?cachebust=' + cache_bust
   $('img.cam-pre-loader').attr('src', image).load(function() {
-    $('html').css('background-image', 'url(' + image + ')');
+    $('body').css('background-image', 'url(' + image + ')');
   });  
 }
 
