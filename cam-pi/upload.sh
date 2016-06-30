@@ -23,7 +23,8 @@ mkdir -p $RESIDENT_STORAGE/$BUCKET
 if [[ $# -eq 0 ]] ; then
 
   echo "Upload Mode: Batch Python Process"
-  /usr/bin/env python ./upload.py
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  /usr/bin/env python $DIR/upload.py
   
 else
 

@@ -19,6 +19,7 @@ MEMORY_STORAGE = "/var/tmp"
 HOME_DIR = os.path.expanduser("~")
 RESIDENT_STORAGE = HOME_DIR + "/weather-cam-tmp"
 BUCKET = os.environ.get("BUCKET") or time.strftime("%Y-%j")
+SWIFT_BUCKET = 'weather-cam-' + BUCKET
 UPLOAD_SLEEP = os.environ.get("UPLOAD_SLEEP") or 60
 DATE_STAMP = time.strftime("%Y-%m-%d-%H-%M-%S")
 NUM_WORKER_THREADS=10
@@ -32,6 +33,7 @@ SWIFT_CONN = swiftclient.client.Connection(
     'user_id': os.environ.get('OS_USER_ID'),
     'region_name': os.environ.get('OS_REGION_NAME'),
   })
+SWIFT_CONN.put_container(SWIFT_BUCKET)
 print "*** Swift Connection initialized..."
 
 # Methods
@@ -40,8 +42,7 @@ def upload_image(file):
     mime_type = mimetypes.guess_type(file)[0]
     full_path = join(RESIDENT_STORAGE, BUCKET, file)
     with open(full_path) as file_contents:
-      swift_bucket = 'weather-cam-' + BUCKET
-      SWIFT_CONN.put_object(swift_bucket, file, file_contents, content_type = mime_type)
+      SWIFT_CONN.put_object(SWIFT_BUCKET, file, file_contents, content_type = mime_type)
       os.remove(full_path)
       return True
   except swiftclient.exceptions.ClientException as (error_string):
