@@ -5,10 +5,11 @@
 # Uploads files to SoftLayer object storage.
 #
 # If executed with no arguments, presumes uploading in bulk all the locally stored images.
-# If executed with 1 or more arguments, presumes it was executed from cam.rb and it is to 
+#
+# If executed with 1 or more arguments, presumes it was executed from cam.rb and it is to
 # upload the current weather.jpg.
 
-source ~/.openstack-creds
+source ~/.weather-cam
 
 # Configuration
 MEMORY_STORAGE=/var/tmp
@@ -21,20 +22,9 @@ mkdir -p $RESIDENT_STORAGE/$BUCKET
 
 if [[ $# -eq 0 ]] ; then
 
-  echo "Upload Mode: Batch"
-  sleep 60 # Wait until last photo has been taken and saved locally.
- 
-  for FILE_PATH in $RESIDENT_STORAGE/$BUCKET/* ; do
-    FILE=`basename "$FILE_PATH"`
-    echo "Uploading $FILE_PATH to $FILE in $BUCKET"
-
-    until timeout 20s swift upload weather-cam-$BUCKET $FILE_PATH --object-name $FILE --skip-identical; do
-      echo "Upload of $FILE failed... Exit code: $?. Retry..."
-    done
-
-    rm $FILE_PATH
-  done
-
+  echo "Upload Mode: Batch Python Process"
+  /usr/bin/env python ./upload.py
+  
 else
 
   echo "Upload Mode: weather.jpg"

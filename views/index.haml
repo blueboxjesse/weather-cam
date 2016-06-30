@@ -3,7 +3,7 @@
     %title Queen Anne Weather Cam - Live from Seattle, WA
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %meta(name="description" content="Seattle Weather Cam perched on the top of Queen Anne.")
-    %meta(name="keywords" content="Queen Anne Weather, Seattle Weather, Queen Anne Weather Cam, Seattle Weather Cam")
+    %meta(name="keywords" content="Queen Anne Weather, Seattle Weather, Queen Anne Weather Cam, Seattle Weather Cam, Queen Anne, Queen Anne Seattle, Washington Weather Cam")
     %link(rel="stylesheet" href="#{stylesheet_path 'app'}")
     %script(src="https://code.jquery.com/jquery-1.11.3.min.js")
     %script(src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js")
@@ -12,11 +12,12 @@
   %body(onload="setCam();")
     %div(class="text")
       %h1
-        Seattle Queen Anne
-        %a{:href => 'http://wunderground.com/personal-weather-station/dashboard?ID=KWASEATT457'}Weather Cam
+        Seattle Weather Cam - 
+        %a{:href => 'http://wunderground.com/personal-weather-station/dashboard?ID=KWASEATT457'}Live Weather Station
       %h3
         Powered by 
-        %a{:href => 'http://bluemix.net'}IBM Bluemix
+        %a{:href => 'http://bluemix.net'}IBM Bluemix,
+        %a{:href => 'http://wunderground.com/personal-weather-station/dashboard?ID=KWASEATT457'}Weather Underground
         and
         %a{:href => 'http://twitter.com/blueboxjesse'}@blueboxjesse        
       %h3

@@ -1,0 +1,59 @@
+.cam-pre-loader {
+  display: none;
+}
+
+body,html {
+  height: 100%;
+  margin: 0 auto;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #ffffff;
+  font-size: 1.25vw;
+  background: url(<%= ENV['WEATHER_JPG_URL'] %>) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: #00aed1;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, p {
+  margin: 0em;
+}
+
+h1 {
+  font-size: 4.0vw;
+}
+
+h2 {
+  font-size: 3.0vw;
+}
+
+h3 {
+  font-size: 2.0vw;
+}
+
+p {
+  margin-top: 4px;
+}
+
+.text {
+  position: fixed;
+  bottom: 5px; 
+  left: 20px;
+  padding: 0 0 5px 0;
+}
+
+.weather {
+  position: fixed;
+  bottom: 5px;
+  right: 15px;
+  padding: 5px 5px 5px 5px;
+}
