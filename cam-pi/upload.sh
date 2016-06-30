@@ -31,7 +31,7 @@ if [[ $# -eq 0 ]] ; then
     FILE=`basename "$FILE_PATH"`
     echo "Uploading $FILE_PATH to $FILE in $BUCKET"
 
-    until timeout 10s swift upload weather-cam-$BUCKET $FILE_PATH --object-name $FILE --skip-identical; do
+    until timeout 20s swift upload weather-cam-$BUCKET $FILE_PATH --object-name $FILE --skip-identical; do
       echo "Upload of $FILE failed... Exit code: $?. Retry..."
     done
 
