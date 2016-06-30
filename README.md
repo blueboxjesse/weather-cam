@@ -58,6 +58,16 @@ sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
 sudo pip install --upgrade ndg-httpsclient
 ```
 
+**On Cam-Pi:**
+Run these commands:
+
+```
+wget https://bootstrap.pypa.io/ez_setup.py -O - | sudo python
+sudo apt-get install git python-pip python-dev libffi-dev python-pyasn1 libssl-dev
+sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
+sudo pip install --upgrade ndg-httpsclient
+```
+
 ## Configuration
 
 This code sources a configuration file from ~/.weather-cam. This configuration value requires the following 
