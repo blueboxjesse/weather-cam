@@ -68,6 +68,14 @@ sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
 sudo pip install --upgrade ndg-httpsclient
 ```
 
+You also need to disable the LED on the camera or you will get a red glow in your images if the camera in a case or against a window. See http://www.raspberrypi-spy.co.uk/2013/05/how-to-disable-the-red-led-on-the-pi-camera-module/.
+
+```
+sudo echo "disable_camera_led=1" >> /boot/config.txt
+sudo reboot
+```
+
+
 ## Configuration
 
 This code sources a configuration file from ~/.weather-cam. This configuration value requires the following 
