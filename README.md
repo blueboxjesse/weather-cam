@@ -63,7 +63,7 @@ Run these commands:
 
 ```
 wget https://bootstrap.pypa.io/ez_setup.py -O - | sudo python
-sudo apt-get install git python-pip python-dev libffi-dev python-pyasn1 libssl-dev
+sudo apt-get install git python-pip python-dev libffi-dev python-pyasn1 libssl-dev imagemagick
 sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
 sudo pip install --upgrade ndg-httpsclient
 ```
