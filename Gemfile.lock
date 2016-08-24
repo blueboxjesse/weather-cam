@@ -63,7 +63,7 @@ DEPENDENCIES
   nokogiri
   puma
   sinatra (~> 1.4)
-  sinatra-asset-pipeline
+  sinatra-asset-pipeline (= 0.7.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
