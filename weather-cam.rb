@@ -2,8 +2,8 @@ Bundler.require
 require 'sinatra/asset_pipeline'
 
 # Grab Memcache information from CF supplied VCAP_SERVICES
-vcap_services = JSON.parse(ENV['VCAP_SERVICES'])['VCAP_SERVICES']
-mc = vcap_services['memcachedcloud'].first['credentials']
+vcap_services = JSON.parse(ENV['VCAP_SERVICES'])
+mc = vcap_services['VCAP_SERVICES']['memcachedcloud'].first['credentials']
 $cache = Dalli::Client.new(mc['servers'], { username: mc['username'], password: mc['password'] })
 
 class WeatherCam < Sinatra::Base
