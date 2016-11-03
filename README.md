@@ -56,6 +56,8 @@ sudo pip install --upgrade google-api-python-client progressbar2
 sudo apt-get install git python-pip python-dev libffi-dev python-pyasn1 libssl-dev
 sudo pip install python-swiftclient python-keystoneclient wrapt cryptography
 sudo pip install --upgrade ndg-httpsclient
+
+sudo apt-get install libav-tools mencoder
 ```
 
 **On Cam-Pi:**
